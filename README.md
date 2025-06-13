@@ -1,6 +1,6 @@
 # 🔒 Trustee Service 性能测试方案
 
-这是一个专业的 Trustee Service 性能测试工具包，用于监控和分析 trustee service 五个核心进程（kbs、grpc-as、rvps、trustee-gateway）在不同并发量下的资源占用情况。
+这是一个专业的 Trustee Service 性能测试工具包，用于监控和分析 trustee service 五个核心进程（kbs、grpc-as、rvps、trustee-gateway、as-restful）在不同并发量下的资源占用情况。
 
 ## 📋 功能特性
 
@@ -120,6 +120,7 @@ python3 scripts/generate_report.py \
 - grpc-as (gRPC Authentication Service)
 - rvps (Remote Verification Policy Service)
 - trustee-gateway (Gateway Service)
+- as-restful (RESTful Authentication Service)
 
 ## 📈 测试输出
 
@@ -197,7 +198,7 @@ wait
 1. **服务检查失败**
    ```bash
    # 检查服务状态
-   ps aux | grep -E "(kbs|grpc-as|rvps|trustee-gateway)"
+   ps aux | grep -E "(kbs|grpc-as|rvps|trustee-gateway|as-restful)"
    
    # 检查端口监听
    ss -tuln | grep -E "(8080|8081)"

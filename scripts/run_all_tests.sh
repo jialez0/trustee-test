@@ -129,6 +129,7 @@ check_services() {
         print_info "  - grpc-as (gRPC Authentication Service)"
         print_info "  - rvps (Remote Verification Policy Service)"
         print_info "  - trustee-gateway (Gateway Service)"
+        print_info "  - as-restful (RESTful Authentication Service)"
         echo ""
         read -p "是否继续执行测试？[y/N] " -n 1 -r
         echo ""

@@ -11,7 +11,7 @@ echo "检查时间: $(date)"
 echo ""
 
 # 定义需要检查的进程
-PROCESSES=("kbs" "grpc-as" "rvps" "trustee-gateway")
+PROCESSES=("kbs" "grpc-as" "rvps" "trustee-gateway" "as-restful")
 
 # 检查进程是否运行
 check_process() {

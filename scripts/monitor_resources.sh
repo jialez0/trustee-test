@@ -26,7 +26,7 @@ get_timestamp() {
 
 # 获取进程PID
 get_process_pids() {
-    local processes=("kbs" "grpc-as" "rvps" "trustee-gateway")
+    local processes=("kbs" "grpc-as" "rvps" "trustee-gateway" "as-restful")
     local pids=""
     
     for process in "${processes[@]}"; do
@@ -118,7 +118,7 @@ monitor_resources() {
 # 实时监控函数（用于后台运行）
 monitor_realtime() {
     local log_file="$OUTPUT_DIR/realtime_monitor.csv"
-    echo "timestamp,total_cpu,total_memory_mb,kbs_cpu,kbs_memory,grpc_as_cpu,grpc_as_memory,rvps_cpu,rvps_memory,gateway_cpu,gateway_memory" > "$log_file"
+    echo "timestamp,total_cpu,total_memory_mb,kbs_cpu,kbs_memory,grpc_as_cpu,grpc_as_memory,rvps_cpu,rvps_memory,gateway_cpu,gateway_memory,as_restful_cpu,as_restful_memory" > "$log_file"
     
     echo "开始实时监控，按 Ctrl+C 停止..."
     
@@ -132,7 +132,7 @@ monitor_realtime() {
         data_line="$data_line,$sys_cpu,$sys_mem"
         
         # 各个进程资源
-        for process in "kbs" "grpc-as" "rvps" "trustee-gateway"; do
+        for process in "kbs" "grpc-as" "rvps" "trustee-gateway" "as-restful"; do
             local pid=$(pgrep -f "$process" 2>/dev/null | head -1)
             if [ -n "$pid" ]; then
                 local cpu=$(ps -p $pid -o pcpu --no-headers 2>/dev/null | tr -d ' ')

@@ -24,6 +24,11 @@
             "name": "trustee-gateway",
             "description": "Trustee Gateway Service",
             "priority": "high"
+        },
+        {
+            "name": "as-restful",
+            "description": "RESTful Authentication Service",
+            "priority": "high"
         }
     ],
     "test_configuration": {
