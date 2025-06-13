@@ -1,0 +1,247 @@
+ # ====================================
+# Trustee Performance Test .gitignore
+# ====================================
+
+# 测试结果和数据文件
+# ==================
+results/raw_data/*.csv
+results/raw_data/*.txt
+results/raw_data/*.json
+results/reports/*.html
+results/charts/*.png
+results/charts/*.svg
+results/charts/*.html
+results/logs/*.log
+results/logs/*.txt
+results/archives/*.tar.gz
+results/archives/*.zip
+
+# 但保留目录结构
+!results/.gitkeep
+!results/*/.gitkeep
+
+# 系统信息和状态文件
+# ==================
+results/system_info.txt
+results/test_status.json
+.dependencies_installed
+PATH_FIX_SUMMARY.md
+
+# Python相关
+# ===========
+# Virtual environments
+venv/
+env/
+ENV/
+venv*/
+.venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# 临时文件和日志
+# ==============
+*.tmp
+*.temp
+*.log
+*.out
+*.err
+nohup.out
+
+# 进程和监控相关
+pids/
+*.pid
+*.lock
+
+# 系统和编辑器文件
+# ================
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# IDE 和编辑器
+# ============
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# 压缩文件和备份
+# ==============
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.bak
+*.backup
+*.old
+
+# 网络和安全相关
+# ==============
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+
+# 特定于项目的临时文件
+# ==================
+# 性能测试可能产生的临时文件
+core.*
+*.core
+test_*.tmp
+monitor_*.tmp
+concurrent_*.tmp
+
+# 工具生成的文件
+flamegraph*.svg
+perf.data*
+gprof.*
+
+# 备注：保留以下文件在版本控制中
+# config/test_config.json - 配置文件
+# scripts/ - 所有测试脚本
+# README.md - 项目文档  
+# trustee_performance_test_plan.md - 测试计划

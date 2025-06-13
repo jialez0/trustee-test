@@ -1,0 +1,112 @@
+{
+    "test_info": {
+        "name": "trustee_performance_test",
+        "description": "Trustee Service 性能测试配置",
+        "version": "1.0.0"
+    },
+    "target_processes": [
+        {
+            "name": "kbs",
+            "description": "Key Broker Service",
+            "priority": "high"
+        },
+        {
+            "name": "grpc-as",
+            "description": "gRPC Authentication Service",
+            "priority": "high"
+        },
+        {
+            "name": "rvps",
+            "description": "Remote Verification Policy Service",
+            "priority": "high"
+        },
+        {
+            "name": "trustee-gateway",
+            "description": "Trustee Gateway Service",
+            "priority": "high"
+        }
+    ],
+    "test_configuration": {
+        "base_url": "http://127.0.0.1:8081/api",
+        "test_command": "kbs-client --url http://127.0.0.1:8081/api attest",
+        "timeout_seconds": 30,
+        "retry_attempts": 3
+    },
+    "concurrency_levels": [5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100],
+    "test_duration": {
+        "warmup_seconds": 30,
+        "steady_state_seconds": 120,
+        "cooldown_seconds": 30,
+        "recovery_between_tests_seconds": 60
+    },
+    "monitoring": {
+        "sample_interval_seconds": 1,
+        "metrics": [
+            "cpu_percent",
+            "memory_rss",
+            "memory_vms", 
+            "memory_percent",
+            "threads",
+            "file_descriptors",
+            "network_connections"
+        ],
+        "system_metrics": [
+            "total_cpu",
+            "total_memory",
+            "disk_io",
+            "network_io"
+        ]
+    },
+    "thresholds": {
+        "cpu_warning_percent": 80,
+        "cpu_critical_percent": 90,
+        "memory_warning_percent": 80,
+        "memory_critical_percent": 90,
+        "success_rate_minimum_percent": 95,
+        "response_time_maximum_seconds": 5.0
+    },
+    "output": {
+        "base_directory": "results",
+        "subdirectories": {
+            "raw_data": "raw_data",
+            "reports": "reports", 
+            "charts": "charts",
+            "logs": "logs",
+            "archives": "archives"
+        },
+        "file_formats": {
+            "data": "csv",
+            "reports": ["html", "pdf"],
+            "charts": "html"
+        }
+    },
+    "reporting": {
+        "include_charts": [
+            "cpu_usage_trend",
+            "memory_usage_trend",
+            "process_resource_comparison",
+            "performance_metrics",
+            "response_time_distribution",
+            "qps_vs_concurrency",
+            "success_rate_trend"
+        ],
+        "chart_style": {
+            "theme": "plotly_white",
+            "color_palette": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2"],
+            "font_size": 12,
+            "chart_height": 500,
+            "chart_width": 800
+        }
+    },
+    "safety": {
+        "auto_stop_on_high_error_rate": true,
+        "error_rate_threshold_percent": 50,
+        "system_resource_protection": true,
+        "max_test_duration_minutes": 180,
+        "emergency_stop_commands": [
+            "pkill -f kbs-client",
+            "pkill -f monitor_resources",
+            "pkill -f concurrent_test"
+        ]
+    }
+}
